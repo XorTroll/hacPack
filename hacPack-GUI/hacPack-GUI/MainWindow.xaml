@@ -1,0 +1,90 @@
+﻿<Window x:Class="hacPack_GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:hacPack_GUI"
+        mc:Ignorable="d"
+        Title="hacPack GUI v1.00 by The-4n" Height="565.615" Width="766.694" WindowStartupLocation="Manual" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid HorizontalAlignment="Left" Width="759" Margin="0,0,-5.667,0.333">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="433*"/>
+            <ColumnDefinition Width="371*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lbl_outdir" Content="Output Directory:" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_outdir" HorizontalAlignment="Left" Height="22" Margin="117,16,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="519" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn_browse_outdir" Content="Browse" HorizontalAlignment="Left" Margin="232.333,16,0,0" VerticalAlignment="Top" Width="102" Height="22" Click="btn_browse_outdir_Click" Grid.Column="1"/>
+        <TabControl x:Name="tbi_type" HorizontalAlignment="Left" Height="260" Margin="10,83,0,0" VerticalAlignment="Top" Width="733" Grid.ColumnSpan="2">
+            <TabItem x:Name="tbi_nca" Header="NCA">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="lbl_exefsdir" Content="ExeFS Directory:" HorizontalAlignment="Left" Margin="6,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.561"/>
+                    <TextBox x:Name="txt_exefsdir" HorizontalAlignment="Left" Height="22" Margin="102,43,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="208" IsReadOnly="True"/>
+                    <Button x:Name="btn_browse_exefsdir" Content="Browse" HorizontalAlignment="Left" Margin="315,43,0,0" VerticalAlignment="Top" Width="102" Height="22" RenderTransformOrigin="0.69,0.455" Click="btn_browse_exefsdir_Click"/>
+                    <Label x:Name="lbl_romfsdir" Content="RomFS Directory:" HorizontalAlignment="Left" Margin="3,68,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.561"/>
+                    <TextBox x:Name="txt_romfsdir" HorizontalAlignment="Left" Height="22" Margin="102,70,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="208" IsReadOnly="True"/>
+                    <Button x:Name="btn_browse_romfsdir" Content="Browse" HorizontalAlignment="Left" Margin="315,70,0,0" VerticalAlignment="Top" Width="102" Height="22" Click="btn_browse_romfsdir_Click" />
+                    <Label x:Name="lbl_logodir" Content="Logo Directory:" HorizontalAlignment="Left" Margin="8,95,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.561"/>
+                    <TextBox x:Name="txt_logodir" HorizontalAlignment="Left" Height="22" Margin="102,97,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="208" IsReadOnly="True"/>
+                    <Button x:Name="btn_browse_logodir" Content="Browse" HorizontalAlignment="Left" Margin="315,98,0,0" VerticalAlignment="Top" Width="102" Height="22" Click="btn_browse_logodir_Click" />
+                    <CheckBox x:Name="chk_noromfs" Content="noromfs" HorizontalAlignment="Left" Margin="427,73,0,0" VerticalAlignment="Top" Checked="chk_noromfs_Checked" Unchecked="chk_noromfs_Unchecked" />
+                    <CheckBox x:Name="chk_nologo" Content="nologo" HorizontalAlignment="Left" Margin="427,101,0,0" VerticalAlignment="Top" Checked="chk_nologo_Checked" Unchecked="chk_nologo_Unchecked"/>
+                    <Button x:Name="btn_build_nca" Content="Build NCA" HorizontalAlignment="Left" Margin="579,201,0,0" VerticalAlignment="Top" Width="138" Click="btn_build_nca_Click" />
+                    <Label x:Name="lbl_nca_type" Content="NCA Type:" HorizontalAlignment="Left" Margin="36,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="cmb_nca_type" HorizontalAlignment="Left" Margin="102,15,0,0" VerticalAlignment="Top" Width="208">
+                        <ComboBoxItem x:Name="cmb_nca_type_program" Content="Program" IsSelected="True" Selected="cmb_nca_type_program_Selected" />
+                        <ComboBoxItem x:Name="cmb_nca_type_control" Content="Control" Selected="cmb_nca_type_romfs_Selected"/>
+                        <ComboBoxItem x:Name="cmb_nca_type_manual" Content="Manual" Selected="cmb_nca_type_romfs_Selected"/>
+                        <ComboBoxItem x:Name="cmb_nca_type_data" Content="Data" Selected="cmb_nca_type_romfs_Selected"/>
+                        <ComboBoxItem x:Name="cmb_nca_type_publicdata" Content="PublicData" Selected="cmb_nca_type_romfs_Selected"/>
+                    </ComboBox>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tbl_metanca" Header="Meta NCA">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="lbl_program_nca" Content="Program NCA:" HorizontalAlignment="Left" Margin="54,43,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.561"/>
+                    <TextBox x:Name="txt_program_nca" HorizontalAlignment="Left" Height="22" Margin="146,45,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="208" IsReadOnly="True"/>
+                    <Button x:Name="btn_browse_program_nca" Content="Browse" HorizontalAlignment="Left" Margin="359,45,0,0" VerticalAlignment="Top" Width="102" Height="22" RenderTransformOrigin="0.69,0.455" Click="btn_browse_program_nca_Click"/>
+                    <Label x:Name="lbl_control_nca" Content="Control NCA:" HorizontalAlignment="Left" Margin="61,70,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.561"/>
+                    <TextBox x:Name="txt_control_nca" HorizontalAlignment="Left" Height="22" Margin="146,72,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="208" IsReadOnly="True"/>
+                    <Button x:Name="btn_browse_control_nca" Content="Browse" HorizontalAlignment="Left" Margin="359,72,0,0" VerticalAlignment="Top" Width="102" Height="22" Click="btn_browse_control_nca_Click" />
+                    <Label x:Name="lbl_legalinfo_nca" Content="Legal Information NCA:" HorizontalAlignment="Left" Margin="8,97,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.561"/>
+                    <TextBox x:Name="txt_legalinfo_nca" HorizontalAlignment="Left" Height="22" Margin="146,99,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="208" IsReadOnly="True"/>
+                    <Button x:Name="btn_browse_legalinfo_nca" Content="Browse" HorizontalAlignment="Left" Margin="359,99,0,0" VerticalAlignment="Top" Width="102" Height="22" Click="btn_browse_legalinfo_nca_Click" />
+                    <Label x:Name="lbl_offlinemanual_nca" Content="Offline Manual NCA:" HorizontalAlignment="Left" Margin="23,124,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.561"/>
+                    <TextBox x:Name="txt_offlinemanual_nca" HorizontalAlignment="Left" Height="22" Margin="146,126,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="208" IsReadOnly="True"/>
+                    <Button x:Name="btn_browse_offlinemanual_nca" Content="Browse" HorizontalAlignment="Left" Margin="359,126,0,0" VerticalAlignment="Top" Width="102" Height="22" Click="btn_browse_offlinemanual_nca_Click" />
+                    <Label x:Name="lbl_data_nca" Content="Data NCA:" HorizontalAlignment="Left" Margin="76,151,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.561"/>
+                    <TextBox x:Name="txt_data_nca" HorizontalAlignment="Left" Height="22" Margin="146,153,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="208" IsReadOnly="True"/>
+                    <Button x:Name="btn_browse_data_nca" Content="Browse" HorizontalAlignment="Left" Margin="359,153,0,0" VerticalAlignment="Top" Width="102" Height="22" Click="btn_browse_data_nca_Click" />
+                    <Label x:Name="lbl_publicdata_nca" Content="PublicData NCA:" HorizontalAlignment="Left" Margin="44,178,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.561"/>
+                    <TextBox x:Name="txt_publicdata_nca" HorizontalAlignment="Left" Height="22" Margin="146,180,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="208" IsReadOnly="True" IsEnabled="False"/>
+                    <Button x:Name="btn_browse_public_data" Content="Browse" HorizontalAlignment="Left" Margin="359,180,0,0" VerticalAlignment="Top" Width="102" Height="22" IsEnabled="False" Click="btn_browse_public_data_Click" />
+                    <Button x:Name="btn_build_metanca" Content="Build Meta NCA" HorizontalAlignment="Left" Margin="579,201,0,0" VerticalAlignment="Top" Width="138" Click="btn_build_metanca_Click" />
+                    <Label x:Name="lbl_title_type" Content="Title Type:" HorizontalAlignment="Left" Margin="76,17,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="cmb_title_type" HorizontalAlignment="Left" Margin="146,17,0,0" VerticalAlignment="Top" Width="208">
+                        <ComboBoxItem x:Name="cmb_title_type_application" Content="Application" IsSelected="True" Selected="cmb_title_type_application_Selected" />
+                        <ComboBoxItem x:Name="cmb_title_type_addoncontent" Content="AddOnContent" Selected="cmb_title_type_addoncontent_Selected" />
+                    </ComboBox>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tbi_nsp" Header="NSP">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="31*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lbl_nca_dir" Content="NCA Directory:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txt_ncadir" HorizontalAlignment="Left" Height="22" Margin="101,12,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="296" IsReadOnly="True" Grid.ColumnSpan="2"/>
+                    <Button x:Name="btn_browse_nca_dir" Content="Browse" HorizontalAlignment="Left" Margin="165.333,12,0,0" VerticalAlignment="Top" Width="102" Height="22" Grid.Column="1" Click="btn_browse_nca_dir_Click"/>
+                    <Button x:Name="btn_build_nsp" Content="Build NSP" HorizontalAlignment="Left" Margin="342.333,201,0,0" VerticalAlignment="Top" Width="138" Grid.Column="1" Click="btn_build_nsp_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Label x:Name="lbl_titleid" Content="Title ID:" HorizontalAlignment="Left" Margin="116.333,46,0,0" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="0,0.561"/>
+        <TextBox x:Name="txt_titleid" HorizontalAlignment="Left" Height="22" Margin="171.333,48,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="163" MaxLength="16" Grid.Column="1" PreviewTextInput="txt_titleid_PreviewTextInput" />
+        <TextBox x:Name="txt_log" HorizontalAlignment="Left" Height="173" Margin="10,348,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="733" Grid.ColumnSpan="2" IsReadOnly="True" />
+        <Label x:Name="lbl_keyset" Content="Keyset File:" HorizontalAlignment="Left" Margin="44,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.561"/>
+        <TextBox x:Name="txt_keyset" HorizontalAlignment="Left" Height="22" Margin="117,48,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="296" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn_browse_keyset" Content="Browse" HorizontalAlignment="Left" Margin="9.333,48,0,0" VerticalAlignment="Top" Width="102" Height="22" Click="btn_browse_keyset_Click" Grid.Column="1"/>
+    </Grid>
+</Window>
