@@ -51,7 +51,7 @@ static void usage(void)
             "--titletype              Set cnmt title type [application, addon]\n"
             "--programnca             Set program nca path\n"
             "--controlnca             Set control nca path\n"
-            "--legalca                Set legal information nca path\n"
+            "--legalnca                Set legal information nca path\n"
             "--htmldocnca             Set offline manual nca path\n"
             "--datanca                Set data nca path\n"
             "--digest                 Set cnmt digest\n"
