@@ -56,7 +56,7 @@ Metadata NCA options:
 --titletype              Set cnmt title type [application, addon]  
 --programnca             Set program nca path  
 --controlnca             Set control nca path  
---legalca                Set legal information nca path  
+--legalnca                Set legal information nca path  
 --htmldocnca             Set offline manual nca path  
 --datanca                Set data nca path  
 --digest                 Set cnmt digest  
